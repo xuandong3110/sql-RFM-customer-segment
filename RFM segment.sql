@@ -18,7 +18,7 @@ from csp.customer c  join csp.sales s on c.`Customer ID`  = s .`Customer ID`
 group by c.`Customer ID`
 ), RFM_Score as(
 select *,
-ntile (5) over(order by Recency desc ) as R_Score,
+ntile (5) over(order by Recency desc ) as R_Score,  -- i use ntile to seprate RFM score into 5 part 
 ntile (5) over(order by Frequency asc ) as F_score,
 ntile (5) over(order by Monetary asc ) as M_score
 from RFM_1
